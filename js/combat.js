@@ -87,7 +87,7 @@
         <li>Multiplicador de d20 = mín(${r.d20} ÷ 10, 1.5) = <strong>${fmt(r.multiplicadorD20)}</strong></li>
         <li>Dano da Arma Efetivo = ${r.danoArma} × ${fmt(r.multiplicadorD20)} = <strong>${fmt(r.danoArmaEfetivo)}</strong></li>
         <li>Partes do Corpo = ${r.body.parts.length ? r.body.parts.map(p => `${RPG.util.escapeHtml(p.label)} (${p.delta >= 0 ? '+' : ''}${fmt(p.delta)})`).join(' + ') : 'Nenhuma'} → soma = <strong>${r.body.sum >= 0 ? '+' : ''}${fmt(r.body.sum)}</strong> → multiplicador final = <strong>${fmt(r.body.multiplier)}x</strong></li>
-        <li>Dano Físico = ${r.danoFisico} × ${fmt(r.body.multiplier)} = <strong>${fmt(r.danoFisicoComPartes)}</strong></li>
+        <li>Dano Físico = ${r.danoFisico} × (${fmt(r.body.multiplier)} + ${r.d20}) = <strong>${fmt(r.danoFisicoComPartes)}</strong></li>
         <li>Dano ÷ divisor = ${fmt(r.danoFisicoComPartes)} ÷ ${r.divisor} = <strong>${fmt(r.danoResistido)}</strong></li>
         <li>Dano Base = ${fmt(r.danoResistido)} + ${fmt(r.danoArmaEfetivo)} = <strong>${fmt(r.danoBase)}</strong></li>
         <li>Modificadores = <strong>${RPG.util.escapeHtml(r.modifierText || 'Nenhum')}</strong></li>
@@ -164,14 +164,15 @@
     const body = getSelectedBody();
     const multiplicadorD20 = Math.min(d20 / 10, 1.5);
     const danoArmaEfetivo = danoArma * multiplicadorD20;
-    const danoFisicoComPartes = danoFisico * body.multiplier;
+    const multiplicadorFisico = body.multiplier + d20;
+    const danoFisicoComPartes = danoFisico * multiplicadorFisico;
     const divisor = DAMAGE_TYPE_DIVISOR[tipoDano] || 8;
     const danoResistido = danoFisicoComPartes / divisor;
     const danoBase = danoResistido + danoArmaEfetivo;
     const modifiers = applyDamageModifiers(danoBase, modifierText);
     if (modifiers.error) { RPG.toast.show(modifiers.error, 'error'); return; }
     const danoFinal = Math.max(0, modifiers.value);
-    const r = { tipoBase, danoFisico, danoArma, d20, rolledAutomatically:!hasD20, multiplicadorD20, danoArmaEfetivo, danoFisicoComPartes, body, danoBase, tipoDano, divisor, danoResistido, modifierText, modifierSteps: modifiers.steps, danoFinal };
+    const r = { tipoBase, danoFisico, danoArma, d20, rolledAutomatically:!hasD20, multiplicadorD20, danoArmaEfetivo, multiplicadorFisico, danoFisicoComPartes, body, danoBase, tipoDano, divisor, danoResistido, modifierText, modifierSteps: modifiers.steps, danoFinal };
     renderResult(r);
   }
 
