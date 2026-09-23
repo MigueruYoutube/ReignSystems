@@ -146,7 +146,7 @@ body.menu-open .menu-overlay { opacity: 1; pointer-events: auto; }
 .btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
 .btn-gold { background: linear-gradient(135deg, var(--gold), #a3813f); color: #1a1408; border: none; }
 .btn-gold:hover { box-shadow: 0 0 1.3rem rgba(201, 169, 97, 0.55); }
-.btn-discord { background: linear-gradient(135deg, #5865f2, #4752c4); color: #fff; border: none; }
+.btn-discord { background: linear-gradient(135deg, #5865f2, #4752c4); color: #fff; border: none; animation: none; }
 .btn-ghost { background: transparent; }
 .btn-danger { background: linear-gradient(135deg, #c0392b, #6e1c14); color: #fff; border: none; }
 .btn-small { padding: 0.5rem 0.85rem; font-size: 0.82rem; }
@@ -208,7 +208,7 @@ body.menu-open .menu-overlay { opacity: 1; pointer-events: auto; }
 .card-nav p { margin: 0; color: var(--text-2); font-size: 0.87rem; line-height: 1.45; }
 
 .discord-section { text-align: center; padding: var(--space-4) var(--space-3); border-radius: var(--radius-lg); margin-bottom: var(--space-3); background: linear-gradient(135deg, rgba(88, 101, 242, 0.2), rgba(20, 20, 31, 0.25)); border: 1px solid rgba(88, 101, 242, 0.35); position: relative; overflow: hidden; }
-.discord-icon { font-size: clamp(2.4rem, 8vw, 4rem); color: #5865f2; display: inline-block; animation: pulse-glow 2.4s ease-in-out infinite; }
+.discord-icon { font-size: clamp(2.4rem, 8vw, 4rem); color: #5865f2; display: inline-block; animation: none; }
 .discord-section h2 { margin: var(--space-2) 0 0.3rem; }
 .discord-section p { color: var(--text-2); margin-bottom: var(--space-3); }
 
