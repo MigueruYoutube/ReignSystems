@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Reign System's — Sistemas e Ferramentas para RPG</title>
+<meta name="description" content="Reign System's é uma central completa de ferramentas para RPG. Role dados, gerencie NPCs e jogadores, calcule danos, controle HP, use modificadores e organize suas sessões de RPG." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%B2%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Marcellus&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div id="boot-loader" class="boot-loader" aria-hidden="true"><i class="fa-solid fa-dice-d20 loader-rune"></i></div>
+<canvas id="particles-canvas" aria-hidden="true"></canvas>
+
+<header class="topnav">
+  <button id="btn-menu" class="icon-btn topnav-btn" aria-label="Abrir menu"><i class="fa-solid fa-bars"></i></button>
+  <a href="#home" class="brand"><i class="fa-solid fa-dice-d20"></i><span>Reign System's</span></a>
+  <div class="topnav-actions">
+    <span class="storage-indicator" title="Todos os dados ficam salvos apenas neste navegador"><i class="fa-solid fa-hard-drive"></i></span>
+    <button id="btn-sound" class="icon-btn topnav-btn" aria-label="Alternar som"><i class="fa-solid fa-volume-high"></i></button>
+    <button id="btn-theme" class="icon-btn topnav-btn" aria-label="Alternar tema"><i class="fa-solid fa-sun"></i></button>
+  </div>
+</header>
+
+<div id="menu-overlay" class="menu-overlay"></div>
+<aside id="sidemenu" class="sidemenu">
+  <nav>
+    <a href="#home" class="nav-link" data-page="home"><i class="fa-solid fa-house"></i> Início</a>
+    <a href="#dados" class="nav-link" data-page="dados"><i class="fa-solid fa-dice-d20"></i> Rolagem de Dados</a>
+    <a href="#anotacoes" class="nav-link" data-page="anotacoes"><i class="fa-solid fa-book"></i> Anotações</a>
+    <a href="#ficha" class="nav-link" data-page="ficha"><i class="fa-solid fa-hat-wizard"></i> Ficha de Personagem</a>
+    <a href="#calculadora" class="nav-link" data-page="calculadora"><i class="fa-solid fa-calculator"></i> Calculadora</a>
+    <a href="#npc" class="nav-link" data-page="npc"><i class="fa-solid fa-person"></i> Criador de NPCs</a>
+    <a href="#itens" class="nav-link" data-page="itens"><i class="fa-solid fa-shield-halved"></i> Gerador de Itens</a>
+    <a href="#combate" class="nav-link" data-page="combate"><i class="fa-solid fa-burst"></i> Combate</a>
+    <a href="#tracker" class="nav-link" data-page="tracker"><i class="fa-solid fa-heart-pulse"></i> Status NPCs/Players</a>
+    <a href="#config" class="nav-link" data-page="config"><i class="fa-solid fa-gear"></i> Configurações</a>
+  </nav>
+  <a class="footer-discord sidemenu-discord" href="https://discord.gg/gTVPtYGnpt" target="_blank" rel="noopener"><i class="fa-brands fa-discord"></i> Reign of Rpg's</a>
+</aside>
+
+<main id="app-main">
+
+  <section class="page active" id="page-home" data-page="home">
+    <div class="hero">
+      <div class="hero-bg-rune" aria-hidden="true"><i class="fa-solid fa-dice-d20"></i></div>
+      <h1 class="hero-title">Reign System's</h1>
+      <p class="hero-subtitle">Sua ferramenta definitiva para RPG</p>
+      <button class="btn btn-gold btn-large" id="btn-scroll-cards"><i class="fa-solid fa-angles-down"></i> Começar</button>
+    </div>
+
+    <div class="nav-cards-grid" id="nav-cards">
+      <a href="#dados" class="card-nav"><i class="fa-solid fa-dice-d20"></i><h3>Rolagem de Dados</h3><p>Expressões complexas, animação 3D e estatísticas de rolagem.</p></a>
+      <a href="#anotacoes" class="card-nav"><i class="fa-solid fa-book"></i><h3>Anotações</h3><p>Livro digital com sintaxe própria, imagens e busca.</p></a>
+      <a href="#ficha" class="card-nav"><i class="fa-solid fa-hat-wizard"></i><h3>Ficha de Personagem</h3><p>Atributos totalmente customizáveis, salve quantos perfis quiser.</p></a>
+      <a href="#calculadora" class="card-nav"><i class="fa-solid fa-calculator"></i><h3>Calculadora</h3><p>Operações padrão, médias e porcentagens com histórico.</p></a>
+      <a href="#npc" class="card-nav"><i class="fa-solid fa-person"></i><h3>Criador de NPCs</h3><p>Nome, aparência, personalidade e modo de falar únicos.</p></a>
+      <a href="#itens" class="card-nav"><i class="fa-solid fa-shield-halved"></i><h3>Gerador de Itens</h3><p>Raridades de Comum a Mítico, cada uma com suas passivas.</p></a>
+      <a href="#combate" class="card-nav"><i class="fa-solid fa-burst"></i><h3>Sistema de Combate</h3><p>Calculadora de dano por parte do corpo e tipo de ataque.</p></a>
+      <a href="#tracker" class="card-nav"><i class="fa-solid fa-heart-pulse"></i><h3>Status NPCs/Players</h3><p>Acompanhe HP e atributos de centenas de fichas.</p></a>
+      <a href="#config" class="card-nav"><i class="fa-solid fa-gear"></i><h3>Configurações</h3><p>Tema, som e backup completo dos seus dados.</p></a>
+    </div>
+
+    <div class="discord-section">
+      <i class="fa-brands fa-discord discord-icon"></i>
+      <h2>Entre no nosso Discord</h2>
+      <p>Reign of Rpg's — Junte-se à comunidade!</p>
+      <a href="https://discord.gg/gTVPtYGnpt" target="_blank" rel="noopener" class="btn btn-discord btn-large footer-discord"><i class="fa-brands fa-discord"></i> Entrar no Discord</a>
+    </div>
+
+    <div class="home-bottom-row">
+      <div class="visitor-counter" id="visitorCounter"><i class="fas fa-users"></i><span id="finicount_views">0</span></div>
+      <div class="storage-notice"><i class="fa-solid fa-shield-halved"></i><span>Seus dados ficam salvos apenas neste navegador — nada é enviado a servidores.</span></div>
+    </div>
+
+    <div class="home-credits">
+      <p>© Todos os direitos reservados a Miguel Kayky</p>
+      <a href="https://github.com/MigueruYoutube" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+    </div>
+  </section>
+
+  <section class="page" id="page-dados" data-page="dados">
+    <div class="page-header page-header-dados">
+      <h2><i class="fa-solid fa-dice-d20"></i> Rolagem de Dados</h2>
+      <button class="icon-btn help-btn" data-help="dados" title="Ajuda"><i class="fa-solid fa-circle-question"></i></button>
+    </div>
+    <div class="dice-stage">
+      <button class="die-visual" id="dice-die-visual" aria-label="Rolar dados"><i class="fa-solid fa-dice-d20"></i></button>
+      <div class="dice-result-total" id="dice-result-total">—</div>
+      <div class="dice-result-breakdown" id="dice-result-breakdown"></div>
+    </div>
+    <div class="dice-input-row">
+      <input type="text" id="dice-expr-input" class="text-input dice-expr-input" placeholder="ex: 4d6+8" value="1d20" />
+      <button class="btn btn-gold" id="dice-roll-btn" type="button"><i class="fa-solid fa-dice"></i> Rolar</button>
+    </div>
+    <div class="quick-dice-row">
+      <button class="quick-die" data-quick-die="4" type="button">d4</button>
+      <button class="quick-die" data-quick-die="6" type="button">d6</button>
+      <button class="quick-die" data-quick-die="8" type="button">d8</button>
+      <button class="quick-die" data-quick-die="10" type="button">d10</button>
+      <button class="quick-die" data-quick-die="12" type="button">d12</button>
+      <button class="quick-die" data-quick-die="20" type="button">d20</button>
+      <button class="quick-die" data-quick-die="100" type="button">d100</button>
+    </div>
+    <div class="panel">
+      <div class="panel-title-row"><h3 class="panel-title"><i class="fa-solid fa-chart-simple"></i> Estatísticas de Operação</h3><button class="icon-btn dice-stats-help" id="dice-stats-help" type="button" aria-label="Como funcionam as estatísticas de operação" title="Como funcionam as estatísticas de operação">?</button></div>
+      <div class="stats-panel" id="dice-stats-panel"><p class="empty-state">Role um dado para ver as estatísticas.</p></div>
+    </div>
+    <div class="panel">
+      <div class="panel-title-row">
+        <h3 class="panel-title"><i class="fa-solid fa-scroll"></i> Histórico</h3>
+        <button class="btn btn-small btn-ghost" id="dice-log-clear" type="button"><i class="fa-solid fa-trash"></i> Limpar</button>
+      </div>
+      <div class="flow-list" id="dice-log-list"></div>
+      <button class="btn btn-ghost" id="dice-log-more" type="button" style="display:none">Revelar todos</button>
+    </div>
+  </section>
+
+  <section class="page" id="page-anotacoes" data-page="anotacoes">
+    <div class="page-header page-header-anotacoes">
+      <h2><i class="fa-solid fa-book"></i> Anotações</h2>
+      <div class="page-header-actions">
+        <button class="icon-btn" id="notes-sidebar-toggle" type="button" title="Anotações importantes"><i class="fa-solid fa-thumbtack"></i></button>
+        <button class="icon-btn help-btn" data-help="anotacoes" type="button"><i class="fa-solid fa-circle-question"></i></button>
+      </div>
+    </div>
+    <p class="notice-banner"><i class="fa-solid fa-triangle-exclamation"></i> Não apague os dados do navegador ou você perderá suas anotações.</p>
+    <div class="notes-toolbar">
+      <input type="text" id="notes-title-input" class="text-input notes-title-input" placeholder="Título da página" />
+      <div class="notes-page-nav">
+        <button class="icon-btn" id="notes-prev" type="button" title="Página anterior"><i class="fa-solid fa-chevron-left"></i></button>
+        <span id="notes-page-index">1 / 1</span>
+        <button class="icon-btn" id="notes-next" type="button" title="Próxima página"><i class="fa-solid fa-chevron-right"></i></button>
+        <button class="icon-btn" id="notes-new-page" type="button" title="Nova página"><i class="fa-solid fa-file-circle-plus"></i></button>
+        <button class="icon-btn" id="notes-delete-page" type="button" title="Excluir página"><i class="fa-solid fa-trash"></i></button>
+      </div>
+      <button class="btn btn-small btn-ghost" id="notes-add-image-btn" type="button"><i class="fa-solid fa-image"></i> Imagem</button>
+      <button class="btn btn-small" id="notes-toggle-view" type="button"><i class="fa-solid fa-eye"></i> Visualizar</button>
+    </div>
+    <div class="notes-layout">
+      <div class="notes-editor-area" id="notes-editor-area">
+        <textarea id="notes-textarea" class="notes-textarea" placeholder="Escreva aqui... # título · ## subtítulo · - item · **negrito** · _itálico_ · ~riscado~ · !importante! · $(255,0,0)cor · >anotação<"></textarea>
+        <div class="notes-preview" id="notes-preview"></div>
+      </div>
+      <aside class="notes-sidebar" id="notes-sidebar">
+        <div class="notes-sidebar-head"><h3 class="panel-title"><i class="fa-solid fa-thumbtack"></i> Anotações Importantes</h3><button class="icon-btn notes-sidebar-close" id="notes-sidebar-close" type="button" title="Fechar"><i class="fa-solid fa-xmark"></i></button></div>
+        <input type="text" id="notes-important-search" class="text-input" placeholder="Buscar em todas as páginas..." />
+        <div class="flow-list" id="notes-important-list"></div>
+      </aside>
+    </div>
+    <div class="notes-image-popup" id="notes-image-popup"><i class="fa-solid fa-image"></i> Adicionar imagem</div>
+    <input type="file" accept="image/*" id="notes-image-file-input" class="hidden-file-input" />
+  </section>
+
+  <section class="page" id="page-ficha" data-page="ficha">
+    <div class="page-header page-header-ficha">
+      <h2><i class="fa-solid fa-hat-wizard"></i> Ficha de Personagem</h2>
+      <button class="icon-btn help-btn" data-help="ficha" type="button"><i class="fa-solid fa-circle-question"></i></button>
+    </div>
+    <div class="panel">
+      <input type="text" id="sheet-name-input" class="text-input sheet-name-input" placeholder="Nome da ficha" />
+      <div class="attr-grid" id="sheet-attr-list"></div>
+      <div class="btn-row">
+        <button class="btn btn-ghost" id="sheet-add-attr" type="button"><i class="fa-solid fa-plus"></i> Adicionar Atributo</button>
+        <button class="btn btn-gold" id="sheet-roll-all" type="button"><i class="fa-solid fa-dice"></i> Rolar Todos</button>
+      </div>
+      <div class="btn-row">
+        <button class="btn" id="sheet-save" type="button"><i class="fa-solid fa-floppy-disk"></i> Salvar Perfil</button>
+        <button class="btn btn-ghost" id="sheet-copy" type="button"><i class="fa-solid fa-copy"></i> Copiar Ficha</button>
+        <button class="btn btn-ghost" id="sheet-new" type="button"><i class="fa-solid fa-file"></i> Nova Ficha</button>
+      </div>
+    </div>
+    <div class="panel">
+      <h3 class="panel-title"><i class="fa-solid fa-folder-open"></i> Perfis Salvos</h3>
+      <div class="flow-list" id="sheet-profiles-list"></div>
+    </div>
+  </section>
+
+  <section class="page" id="page-calculadora" data-page="calculadora">
+    <div class="page-header page-header-calc">
+      <h2><i class="fa-solid fa-calculator"></i> Calculadora</h2>
+      <button class="icon-btn help-btn" data-help="calculadora" type="button"><i class="fa-solid fa-circle-question"></i></button>
+    </div>
+    <div class="calc-wrap">
+      <div class="calc-display" id="calc-display">0</div>
+      <div class="calc-grid" id="calc-grid">
+        <button class="calc-btn calc-btn-fn" data-action="clear" type="button">C</button>
+        <button class="calc-btn calc-btn-fn" data-action="paren" data-value="(" type="button">(</button>
+        <button class="calc-btn calc-btn-fn" data-action="paren" data-value=")" type="button">)</button>
+        <button class="calc-btn calc-btn-fn" data-action="back" type="button"><i class="fa-solid fa-delete-left"></i></button>
+        <button class="calc-btn" data-action="digit" data-value="7" type="button">7</button>
+        <button class="calc-btn" data-action="digit" data-value="8" type="button">8</button>
+        <button class="calc-btn" data-action="digit" data-value="9" type="button">9</button>
+        <button class="calc-btn calc-btn-op" data-action="op" data-value="÷" type="button">÷</button>
+        <button class="calc-btn" data-action="digit" data-value="4" type="button">4</button>
+        <button class="calc-btn" data-action="digit" data-value="5" type="button">5</button>
+        <button class="calc-btn" data-action="digit" data-value="6" type="button">6</button>
+        <button class="calc-btn calc-btn-op" data-action="op" data-value="×" type="button">×</button>
+        <button class="calc-btn" data-action="digit" data-value="1" type="button">1</button>
+        <button class="calc-btn" data-action="digit" data-value="2" type="button">2</button>
+        <button class="calc-btn" data-action="digit" data-value="3" type="button">3</button>
+        <button class="calc-btn calc-btn-op" data-action="op" data-value="-" type="button">−</button>
+        <button class="calc-btn" data-action="digit" data-value="0" type="button">0</button>
+        <button class="calc-btn" data-action="dot" type="button">.</button>
+        <button class="calc-btn" data-action="comma" data-value="," type="button">,</button>
+        <button class="calc-btn calc-btn-op" data-action="op" data-value="+" type="button">+</button>
+        <button class="calc-btn calc-btn-special" data-action="average" type="button">MÉDIA</button>
+        <button class="calc-btn calc-btn-special" data-action="percent" type="button">%</button>
+        <button class="calc-btn calc-btn-equals" data-action="equals" type="button" style="grid-column: span 2;">=</button>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-title-row">
+        <h3 class="panel-title"><i class="fa-solid fa-clock-rotate-left"></i> Histórico</h3>
+        <button class="btn btn-small btn-ghost" id="calc-history-clear" type="button"><i class="fa-solid fa-trash"></i> Limpar</button>
+      </div>
+      <div class="flow-list" id="calc-history-list"></div>
+    </div>
+  </section>
+
+  <section class="page" id="page-npc" data-page="npc">
+    <div class="page-header page-header-npc">
+      <h2><i class="fa-solid fa-person"></i> Criador de NPCs</h2>
+      <button class="icon-btn help-btn" data-help="npc" type="button"><i class="fa-solid fa-circle-question"></i></button>
+    </div>
+    <div class="panel generator-controls">
+      <label class="field-label">Classificação
+        <select id="npc-archetype-select" class="text-input select-input">
+          <option>Aleatório</option><option>Herói</option><option>Vilão</option><option>Anti-herói</option><option>Coadjuvante</option>
+        </select>
+      </label>
+      <button class="btn btn-gold btn-large" id="npc-generate-btn" type="button"><i class="fa-solid fa-wand-magic-sparkles"></i> Gerar NPC</button>
+    </div>
+    <div class="gen-result" id="npc-result"></div>
+    <div class="panel">
+      <h3 class="panel-title"><i class="fa-solid fa-users"></i> NPCs Salvos</h3>
+      <div class="flow-list" id="npc-saved-list"></div>
+    </div>
+  </section>
+
+  <section class="page" id="page-itens" data-page="itens">
+    <div class="page-header page-header-itens">
+      <h2><i class="fa-solid fa-shield-halved"></i> Gerador de Itens</h2>
+      <button class="icon-btn help-btn" data-help="itens" type="button"><i class="fa-solid fa-circle-question"></i></button>
+    </div>
+    <div class="panel generator-controls">
+      <label class="field-label">Categoria
+        <select id="item-category-select" class="text-input select-input">
+          <option>Aleatório</option><option>Arma</option><option>Armadura</option><option>Acessório</option><option>Relíquia</option>
+        </select>
+      </label>
+      <label class="field-label">Raridade
+        <select id="item-rarity-select" class="text-input select-input">
+          <option>Aleatório</option><option>Comum</option><option>Incomum</option><option>Raro</option><option>Épico</option><option>Lendário</option><option>Mítico</option>
+        </select>
+      </label>
+      <button class="btn btn-gold btn-large" id="item-generate-btn" type="button"><i class="fa-solid fa-wand-magic-sparkles"></i> Gerar Item</button>
+    </div>
+    <div class="gen-result" id="item-result"></div>
+    <div class="panel">
+      <h3 class="panel-title"><i class="fa-solid fa-boxes-stacked"></i> Itens Salvos</h3>
+      <div class="flow-list" id="item-saved-list"></div>
+    </div>
+  </section>
+
+  <section class="page" id="page-combate" data-page="combate">
+    <div class="page-header page-header-combate">
+      <h2><i class="fa-solid fa-burst"></i> Sistema de Combate</h2>
+      <button class="icon-btn help-btn" data-help="combate" type="button"><i class="fa-solid fa-circle-question"></i></button>
+    </div>
+    <div class="gen-result" id="combat-result"></div>
+    <div class="panel combat-form">
+      <div class="form-grid">
+        <label class="field-label">Tipo de Dano Base<select id="combat-tipo-base" class="text-input select-input"><option>Físico</option><option>Mágico</option></select></label>
+        <label class="field-label">Dano Físico<input type="number" id="combat-dano-fisico" class="text-input" value="20" /></label>
+        <label class="field-label">Dano da Arma<input type="number" id="combat-dano-arma" class="text-input" value="0" /></label>
+        <label class="field-label">d20 de Ataque<span class="input-with-btn"><input type="number" id="combat-d20" class="text-input" placeholder="Aleatório" min="1" max="20" /><button class="btn btn-small" id="combat-d20-roll" type="button"><i class="fa-solid fa-dice-d20"></i> Rolar</button></span></label>
+        <label class="field-label">Tipo de Dano<select id="combat-tipo-dano" class="text-input select-input"><option>Normal</option><option>Debuffado</option><option>Crítico</option><option>Real</option></select></label>
+        <label class="field-label combat-modifiers-field">Modificadores do Dano<input type="text" id="combat-modifiers" class="text-input" placeholder="Ex.: +10% +10 -5% +200% x2 ÷4" /></label>
+        <div class="field-label combat-body-parts-field"><span>Partes do Corpo</span><div class="body-part-menu" id="combat-body-part-menu"><button class="text-input body-part-trigger" id="combat-body-part-trigger" type="button"><span id="combat-body-part-label">Nenhuma / Neutro (1x)</span><i class="fa-solid fa-chevron-down"></i></button><div class="body-part-options" id="combat-body-part-options"></div></div><button class="btn btn-small body-custom-add-btn" id="combat-add-custom-body" type="button"><i class="fa-solid fa-plus"></i> Parte personalizada</button></div>
+      </div>
+      <div class="combat-roll-info" id="combat-roll-info">d20 ainda não rolado. Se calcular sem definir, o sistema sorteará automaticamente.</div>
+      <button class="btn btn-gold btn-large" id="combat-calc-btn" type="button"><i class="fa-solid fa-burst"></i> Executar Ataque</button>
+    </div>
+  </section>
+
+  <div class="combat-real-popup" id="combat-real-popup" role="status" aria-live="polite"><i class="fa-solid fa-shield-halved"></i><span>Dano real ignora qualquer tipo de defesa</span></div>
+
+  <section class="page" id="page-tracker" data-page="tracker">
+    <div class="page-header page-header-tracker">
+      <h2><i class="fa-solid fa-heart-pulse"></i> Status de NPCs/Players</h2>
+      <button class="icon-btn help-btn" data-help="tracker" type="button"><i class="fa-solid fa-circle-question"></i></button>
+    </div>
+    <div class="panel">
+      <div class="tracker-add-row">
+        <input type="text" id="tracker-new-name" class="text-input" placeholder="Nome" />
+        <input type="number" id="tracker-new-hp" class="text-input" placeholder="HP máximo" value="100" />
+        <button class="btn btn-gold" id="tracker-add-btn" type="button"><i class="fa-solid fa-plus"></i> Adicionar</button>
+      </div>
+      <input type="text" id="tracker-search" class="text-input tracker-search" placeholder="Buscar por nome..." />
+      <div class="tracker-count" id="tracker-count"></div>
+    </div>
+    <div class="tracker-panels" id="tracker-panels"></div>
+    <div class="tracker-grid" id="tracker-list"></div>
+    <div class="tracker-sentinel" id="tracker-sentinel"></div>
+  </section>
+
+  <section class="page" id="page-config" data-page="config">
+    <div class="page-header page-header-config">
+      <h2><i class="fa-solid fa-gear"></i> Configurações</h2>
+      <button class="icon-btn help-btn" data-help="config" type="button"><i class="fa-solid fa-circle-question"></i></button>
+    </div>
+    <div class="panel settings-list">
+      <label class="settings-row"><span><i class="fa-solid fa-moon"></i> Modo Escuro</span><input type="checkbox" id="settings-theme-toggle" class="switch-input" /></label>
+      <label class="settings-row"><span><i class="fa-solid fa-volume-high"></i> Som</span><input type="checkbox" id="settings-sound-toggle" class="switch-input" /></label>
+      <label class="settings-row"><span><i class="fa-solid fa-wind"></i> Som Ambiente</span><input type="checkbox" id="settings-ambient-toggle" class="switch-input" /></label>
+      <label class="settings-row settings-row-slider"><span><i class="fa-solid fa-sliders"></i> Volume</span><input type="range" id="settings-volume-slider" min="0" max="1" step="0.05" /></label>
+    </div>
+    <div class="panel">
+      <h3 class="panel-title"><i class="fa-solid fa-database"></i> Backup</h3>
+      <div class="btn-row">
+        <button class="btn btn-gold" id="settings-export" type="button"><i class="fa-solid fa-file-export"></i> Exportar Backup</button>
+        <button class="btn" id="settings-import-btn" type="button"><i class="fa-solid fa-file-import"></i> Importar Backup</button>
+        <input type="file" accept="application/json" id="settings-import-input" class="hidden-file-input" />
+      </div>
+    </div>
+    <div class="panel">
+      <h3 class="panel-title"><i class="fa-solid fa-triangle-exclamation"></i> Zona de Perigo</h3>
+      <button class="btn btn-danger" id="settings-clear-all" type="button"><i class="fa-solid fa-trash"></i> Limpar Todos os Dados</button>
+    </div>
+    <div class="panel credits-panel">
+      <p>Reign System's — versão 1.0</p>
+      <p>Criado por Miguel Kayky</p>
+    </div>
+  </section>
+
+</main>
+
+
+<div id="toast-container" class="toast-container"></div>
+<div id="modal-overlay" class="modal-overlay hidden"><div id="modal-box" class="modal-box" role="dialog" aria-modal="true"></div></div>
+
+<script src="js/data.js"></script>
+<script src="js/core.js"></script>
+<script src="js/dice.js"></script>
+<script src="js/sheets.js"></script>
+<script src="js/npc.js"></script>
+<script src="js/items.js"></script>
+<script src="js/calculator.js"></script>
+<script src="js/combat.js"></script>
+<script src="js/tracker.js"></script>
+<script src="js/notes.js"></script>
+<script src="js/settings.js"></script>
+<script async src="//finicounter.eu.org/finicounter.js"></script>
+</body>
+</html>
