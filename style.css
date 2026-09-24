@@ -487,6 +487,14 @@ body.menu-open .menu-overlay { opacity: 1; pointer-events: auto; }
 .extras-icon { width: 4.5rem; height: 4.5rem; margin: 0 auto 1rem; display: grid; place-items: center; border-radius: 50%; background: rgba(201,169,97,0.12); border: 1px solid rgba(201,169,97,0.3); color: var(--gold-text); font-size: 1.6rem; }
 .extras-support-card h3 { font-family: var(--font-title-alt); font-size: clamp(1.2rem, 4vw, 1.6rem); margin-bottom: 0.7rem; color: var(--text-1); }
 .extras-support-card p { max-width: 42rem; margin: 0.6rem auto; }
+.extras-pix-panel { text-align: center; }
+.extras-pix-icon { width: 3.2rem; height: 3.2rem; margin: 0 auto 0.75rem; display: grid; place-items: center; border-radius: 50%; background: rgba(0, 170, 120, 0.12); border: 1px solid rgba(0, 170, 120, 0.28); color: var(--text-1); font-size: 1.35rem; }
+.extras-pix-panel > p { color: var(--text-2); margin: 0.5rem auto 0.8rem; }
+.extras-pix-box { max-width: 34rem; margin: 0 auto; padding: 1rem; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface-strong); display: flex; flex-direction: column; align-items: center; gap: 0.55rem; }
+.extras-pix-label { color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; }
+.extras-pix-box code { font-size: clamp(0.9rem, 3vw, 1.05rem); color: var(--text-1); word-break: break-word; }
+.extras-pix-copy { margin-top: 0.2rem; }
+.extras-pix-owner { font-size: 0.88rem; color: var(--text-muted) !important; }
 .extras-ad-panel { text-align: center; }
 .ad-slot { width: 100%; min-height: 10rem; display: grid; place-items: center; border: 1px dashed var(--border); border-radius: var(--radius-md); background: var(--surface-strong); overflow: hidden; }
 .ad-placeholder { display: flex; flex-direction: column; align-items: center; gap: 0.55rem; color: var(--text-muted); font-size: 0.86rem; padding: 2rem; }

@@ -6,11 +6,11 @@
    ============================================================ */
 (function () {
   const CONFIG = {
-    repo: 'MigueruYoutube/ReignSystems',
-    repoId: '',       // Ex.: R_kgDO...
-    category: '',     // Ex.: General ou uma categoria própria de feedback
-    categoryId: ''    // Ex.: DIC_kwDO...
-  };
+  repo: 'MigueruYoutube/ReignSystems',
+  repoId: 'R_kgDOUmpDrg',
+  category: 'Announcements',
+  categoryId: 'DIC_kwDOUmpDrs4DGVEx'
+};
 
   let loaded = false;
 
