@@ -251,6 +251,59 @@ RPG.theme = {
   }
 };
 
+/* ------------------------- TELA CHEIA ------------------------------ */
+RPG.fullscreen = {
+  isActive() {
+    return !!(document.fullscreenElement || document.webkitFullscreenElement);
+  },
+
+  async toggle() {
+    const root = document.documentElement;
+
+    try {
+      if (this.isActive()) {
+        if (document.exitFullscreen) await document.exitFullscreen();
+        else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+        return;
+      }
+
+      const request = root.requestFullscreen || root.webkitRequestFullscreen;
+      if (!request) {
+        RPG.toast.show('Tela cheia não é suportada por este navegador.', 'info');
+        return;
+      }
+
+      await request.call(root);
+    } catch (err) {
+      RPG.toast.show('Não foi possível ativar a tela cheia.', 'error');
+    }
+  },
+
+  updateIcon() {
+    const btn = document.getElementById('btn-fullscreen');
+    if (!btn) return;
+
+    const active = this.isActive();
+    btn.innerHTML = active
+      ? '<i class="fa-solid fa-compress"></i>'
+      : '<i class="fa-solid fa-expand"></i>';
+
+    btn.setAttribute('aria-label', active ? 'Sair da tela cheia' : 'Entrar em tela cheia');
+    btn.title = active ? 'Sair da tela cheia' : 'Tela cheia';
+  },
+
+  init() {
+    this.updateIcon();
+
+    ['fullscreenchange', 'webkitfullscreenchange'].forEach(event => {
+      document.addEventListener(event, () => this.updateIcon());
+    });
+
+    const btn = document.getElementById('btn-fullscreen');
+    if (btn) btn.addEventListener('click', () => this.toggle());
+  }
+};
+
 /* -------------------------- PARTICLES ----------------------------- */
 RPG.particles = {
   init(canvas) {
@@ -300,6 +353,7 @@ RPG.router = {
     if (prevEl) prevEl.classList.remove('active');
     nextEl.classList.add('active');
     document.querySelectorAll('.nav-link').forEach(a => a.classList.toggle('active', a.dataset.page === id));
+    document.body.dataset.page = id;
     window.scrollTo({ top: 0, behavior: 'auto' });
     this.current = id;
     const sidemenu = document.getElementById('sidemenu');
@@ -313,6 +367,7 @@ RPG.router = {
 /* ----------------------------- BOOT --------------------------------- */
 document.addEventListener('DOMContentLoaded', () => {
   RPG.theme.init();
+  RPG.fullscreen.init();
   RPG.router.init();
 
   const canvas = document.getElementById('particles-canvas');

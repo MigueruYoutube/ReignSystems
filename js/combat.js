@@ -81,7 +81,7 @@
         <div class="combat-final-box"><span class="stat-label">Dano da Arma</span><span class="stat-value">${fmt(r.danoArmaEfetivo)}</span></div>
         <div class="combat-final-box"><span class="stat-label">Multiplicador das Partes</span><span class="stat-value">${fmt(r.body.multiplier)}x</span></div>
       </div>
-      <details class="combat-breakdown" open><summary>Ver cálculo detalhado</summary><ul class="calc-steps">
+      <details class="combat-breakdown"><summary>Ver cálculo detalhado</summary><ul class="calc-steps">
         <li>Tipo base: <strong>${r.tipoBase}</strong> | Tipo de dano: <strong>${r.tipoDano}</strong></li>
         <li>d20 de Ataque = <strong>${r.d20}</strong> ${r.rolledAutomatically ? '(sorteado automaticamente)' : '(definido/rolado manualmente)'}</li>
         <li>Multiplicador de d20 = mín(${r.d20} ÷ 10, 1.5) = <strong>${fmt(r.multiplicadorD20)}</strong></li>
@@ -95,7 +95,7 @@
         <li>Dano Final após modificadores = <strong>${fmt(r.danoFinal)}</strong></li>
       </ul></details>
     </div>`;
-    requestAnimationFrame(() => { el.classList.add('show'); el.scrollIntoView({ behavior: 'smooth', block: 'center' }); });
+    requestAnimationFrame(() => { el.classList.add('show'); el.scrollIntoView({ behavior: 'auto', block: 'center' }); });
     RPG.audio.reveal();
   }
 
