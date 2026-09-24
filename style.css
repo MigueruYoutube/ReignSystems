@@ -462,3 +462,32 @@ body.menu-open .menu-overlay { opacity: 1; pointer-events: auto; }
 .home-credits p { margin: 0 0 0.35rem; }
 .home-credits a { color: var(--text-muted); display: inline-flex; align-items: center; gap: 0.35rem; transition: color 0.2s, transform 0.2s; }
 .home-credits a:hover { color: var(--gold-text); transform: translateY(-1px); }
+
+
+/* ------------------------- FEEDBACK / EXTRAS ------------------------- */
+.page-header-feedback { background: linear-gradient(120deg, #315f73, #152e39 70%); }
+.page-header-extras { background: linear-gradient(120deg, #7251a6, #302047 70%); }
+
+.feedback-intro p, .extras-support-card p { color: var(--text-2); line-height: 1.65; }
+.feedback-note, .extras-note { display: flex; align-items: flex-start; gap: 0.55rem; color: var(--text-muted) !important; font-size: 0.86rem; }
+.feedback-note i, .extras-note i { color: var(--gold-text); margin-top: 0.2rem; flex-shrink: 0; }
+
+.feedback-comments-panel { min-height: 10rem; }
+.giscus-container { width: 100%; }
+.giscus-frame { max-width: 100%; }
+
+.feedback-setup-notice { display: flex; align-items: flex-start; gap: 0.8rem; padding: 1rem; border: 1px dashed var(--border); border-radius: var(--radius-md); background: var(--surface-strong); color: var(--text-2); }
+.feedback-setup-notice.hidden { display: none; }
+.feedback-setup-notice > i { color: var(--gold-text); font-size: 1.1rem; margin-top: 0.15rem; }
+.feedback-setup-notice strong { color: var(--text-1); }
+.feedback-setup-notice p { margin: 0.35rem 0 0; line-height: 1.5; font-size: 0.86rem; }
+.feedback-setup-notice code { background: var(--surface); padding: 0.12rem 0.35rem; border-radius: 0.25rem; }
+
+.extras-support-card { text-align: center; padding: clamp(1.5rem, 5vw, 2.5rem); }
+.extras-icon { width: 4.5rem; height: 4.5rem; margin: 0 auto 1rem; display: grid; place-items: center; border-radius: 50%; background: rgba(201,169,97,0.12); border: 1px solid rgba(201,169,97,0.3); color: var(--gold-text); font-size: 1.6rem; }
+.extras-support-card h3 { font-family: var(--font-title-alt); font-size: clamp(1.2rem, 4vw, 1.6rem); margin-bottom: 0.7rem; color: var(--text-1); }
+.extras-support-card p { max-width: 42rem; margin: 0.6rem auto; }
+.extras-ad-panel { text-align: center; }
+.ad-slot { width: 100%; min-height: 10rem; display: grid; place-items: center; border: 1px dashed var(--border); border-radius: var(--radius-md); background: var(--surface-strong); overflow: hidden; }
+.ad-placeholder { display: flex; flex-direction: column; align-items: center; gap: 0.55rem; color: var(--text-muted); font-size: 0.86rem; padding: 2rem; }
+.ad-placeholder i { color: var(--gold-text); font-size: 1.5rem; }

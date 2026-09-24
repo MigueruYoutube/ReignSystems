@@ -285,7 +285,7 @@ RPG.particles = {
 
 /* ---------------------------- ROUTER ------------------------------- */
 RPG.router = {
-  PAGE_IDS: ['home', 'dados', 'anotacoes', 'ficha', 'calculadora', 'npc', 'itens', 'combate', 'tracker', 'config'],
+  PAGE_IDS: ['home', 'dados', 'anotacoes', 'ficha', 'calculadora', 'npc', 'itens', 'combate', 'tracker', 'feedback', 'extras', 'config'],
   current: null,
   init() {
     window.addEventListener('hashchange', () => this.go(location.hash.slice(1) || 'home'));

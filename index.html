@@ -50,6 +50,8 @@
     <a href="#itens" class="nav-link" data-page="itens"><i class="fa-solid fa-shield-halved"></i> Gerador de Itens</a>
     <a href="#combate" class="nav-link" data-page="combate"><i class="fa-solid fa-burst"></i> Combate</a>
     <a href="#tracker" class="nav-link" data-page="tracker"><i class="fa-solid fa-heart-pulse"></i> Status NPCs/Players</a>
+    <a href="#feedback" class="nav-link" data-page="feedback"><i class="fa-solid fa-comments"></i> Feedback</a>
+    <a href="#extras" class="nav-link" data-page="extras"><i class="fa-solid fa-wand-sparkles"></i> 💫 Extras</a>
     <a href="#config" class="nav-link" data-page="config"><i class="fa-solid fa-gear"></i> Configurações</a>
   </nav>
   <a class="footer-discord sidemenu-discord" href="https://discord.gg/gTVPtYGnpt" target="_blank" rel="noopener"><i class="fa-brands fa-discord"></i> Reign of Rpg's</a>
@@ -321,6 +323,54 @@
     <div class="tracker-sentinel" id="tracker-sentinel"></div>
   </section>
 
+  <section class="page" id="page-feedback" data-page="feedback">
+    <div class="page-header page-header-feedback">
+      <h2><i class="fa-solid fa-comments"></i> Feedback</h2>
+      <button class="icon-btn help-btn" data-help="feedback" type="button" title="Ajuda"><i class="fa-solid fa-circle-question"></i></button>
+    </div>
+    <div class="panel feedback-intro">
+      <h3 class="panel-title"><i class="fa-solid fa-message"></i> Ajude a melhorar o Reign System's</h3>
+      <p>Deixe sugestões, relate problemas ou conte o que você gostaria de ver nas próximas atualizações.</p>
+      <p class="feedback-note"><i class="fa-solid fa-cloud-arrow-up"></i> O envio do feedback precisa de internet; seus dados de RPG continuam armazenados localmente.</p>
+    </div>
+    <div class="panel feedback-comments-panel">
+      <div id="giscus-comments" class="giscus-container"></div>
+      <div id="giscus-setup-notice" class="feedback-setup-notice hidden">
+        <i class="fa-solid fa-circle-info"></i>
+        <div>
+          <strong>Feedback em configuração</strong>
+          <p>Ative o GitHub Discussions no repositório e preencha os IDs do repositório e da categoria em <code>js/feedback.js</code> para ativar os comentários.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page" id="page-extras" data-page="extras">
+    <div class="page-header page-header-extras">
+      <h2><i class="fa-solid fa-wand-sparkles"></i> 💫 Extras</h2>
+    </div>
+    <div class="panel extras-support-card">
+      <div class="extras-icon" aria-hidden="true"><i class="fa-solid fa-heart"></i></div>
+      <h3>Ajude o criador</h3>
+      <p>Cada anúncio assistido ajuda o criador a manter o Reign System's atualizado periodicamente, organizado e livre de bugs.</p>
+      <p class="extras-note"><i class="fa-solid fa-circle-info"></i> Os anúncios ficam somente nesta aba e não interrompem as outras ferramentas do site.</p>
+    </div>
+    <div class="panel extras-ad-panel">
+      <h3 class="panel-title"><i class="fa-solid fa-rectangle-ad"></i> Anúncio</h3>
+      <div class="ad-slot" id="extras-ad-slot" aria-label="Área de anúncio">
+        <div class="ad-placeholder">
+          <i class="fa-solid fa-rectangle-ad"></i>
+          <span>Espaço reservado para anúncio</span>
+        </div>
+      </div>
+      <!--
+        Integração futura:
+        coloque aqui o bloco oficial fornecido pelo Google AdSense.
+        Não invente/edite o client ou o slot: use os valores da sua conta.
+      -->
+    </div>
+  </section>
+
   <section class="page" id="page-config" data-page="config">
     <div class="page-header page-header-config">
       <h2><i class="fa-solid fa-gear"></i> Configurações</h2>
@@ -366,6 +416,8 @@
 <script src="js/combat.js"></script>
 <script src="js/tracker.js"></script>
 <script src="js/notes.js"></script>
+<script src="js/feedback.js"></script>
+<script src="js/extras.js"></script>
 <script src="js/settings.js"></script>
 <script async src="//finicounter.eu.org/finicounter.js"></script>
 </body>

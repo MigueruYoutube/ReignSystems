@@ -36,6 +36,12 @@ Calculadora de dano completa: partes do corpo com multiplicadores somáveis (ou 
 ### ❤️ Status de NPCs/Players
 Rastreador de HP e atributos para mais de mil fichas, em cards expansíveis — até 4 abertos lado a lado no desktop, tela cheia no celular. Cálculo de HP encadeado (pontos, %, multiplicação, divisão) e atributos personalizados livres por ficha.
 
+### 💬 Feedback
+Aba de feedback integrada ao Giscus/GitHub Discussions para sugestões, relatos de problemas e ideias da comunidade.
+
+### 💫 Extras
+Área opcional e isolada para anúncios de apoio ao criador. Nenhuma funcionalidade essencial é bloqueada por anúncios.
+
 ### ⚙️ Configurações
 Tema claro/escuro, som de interface, som ambiente com volume ajustável, e **backup completo**: exporte tudo (fichas, NPCs, itens, anotações, tracker) em um único JSON e importe em qualquer outro navegador ou dispositivo.
 
