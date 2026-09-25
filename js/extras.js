@@ -47,6 +47,11 @@
     });
   }
 
+  // Carrega o anúncio assim que o sistema inicia, e não apenas ao abrir Extras.
+  // Assim ele já fica pronto quando o usuário navegar até a aba.
+  setupPixCopy();
+  loadAd();
+
   RPG.modules.extras = {
     onShow() {
       setupPixCopy();
