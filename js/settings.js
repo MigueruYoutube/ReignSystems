@@ -42,6 +42,7 @@
       const ok2 = await RPG.modal.confirmTyped('Esta ação é irreversível e não pode ser desfeita.', 'CONFIRMAR');
       if (!ok2) return;
       RPG.storage.clearAll();
+      if (RPG.music && RPG.music.clearUserTracks) await RPG.music.clearUserTracks();
       RPG.toast.show('Todos os dados foram apagados. Recarregando...', 'success');
       setTimeout(() => location.reload(), 1200);
     });

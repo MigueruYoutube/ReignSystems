@@ -385,7 +385,12 @@
       <label class="settings-row"><span><i class="fa-solid fa-moon"></i> Modo Escuro</span><input type="checkbox" id="settings-theme-toggle" class="switch-input" /></label>
       <label class="settings-row"><span><i class="fa-solid fa-volume-high"></i> Som</span><input type="checkbox" id="settings-sound-toggle" class="switch-input" /></label>
       <label class="settings-row"><span><i class="fa-solid fa-wind"></i> Som Ambiente</span><input type="checkbox" id="settings-ambient-toggle" class="switch-input" /></label>
-      <label class="settings-row settings-row-slider"><span><i class="fa-solid fa-sliders"></i> Volume</span><input type="range" id="settings-volume-slider" min="0" max="1" step="0.05" /></label>
+      <label class="settings-row settings-row-slider"><span><i class="fa-solid fa-sliders"></i> Volume dos efeitos</span><input type="range" id="settings-volume-slider" min="0" max="1" step="0.05" /></label>
+    </div>
+    <div class="panel">
+      <h3 class="panel-title"><i class="fa-solid fa-headphones"></i> Player de Música</h3>
+      <p class="settings-description">As músicas do site ficam disponíveis para todos. As músicas que você adicionar ficam somente neste navegador.</p>
+      <div id="music-player-host"></div>
     </div>
     <div class="panel">
       <h3 class="panel-title"><i class="fa-solid fa-database"></i> Backup</h3>
@@ -423,6 +428,7 @@
 <script src="js/notes.js"></script>
 <script src="js/feedback.js"></script>
 <script src="js/extras.js"></script>
+<script src="js/music.js"></script>
 <script src="js/settings.js"></script>
 <script async src="//finicounter.eu.org/finicounter.js"></script>
 </body>
