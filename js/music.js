@@ -98,7 +98,7 @@
     return tracks.map(t => t.id);
   }
 
-  const SITE_TRACKS_CACHE_KEY = 'reignSystemsSiteMusicTracks';
+  const SITE_TRACKS_CACHE_KEY = 'reignSystemsSiteMusicTracks_v2';
 
   function getCachedSiteTracks() {
     try {
@@ -121,7 +121,7 @@
   }
 
   async function discoverSiteTracks() {
-    const apiUrl = 'https://api.github.com/repos/MigueruYoutube/ReignSystems/contents/audio';
+    const apiUrl = 'https://api.github.com/repos/MigueruYoutube/ReignSystems/contents/audio?ref=main&_=' + Date.now();
 
     try {
       const response = await fetch(apiUrl, {
@@ -154,6 +154,8 @@
       const cached = getCachedSiteTracks();
       if (!cached.length) {
         RPG.toast.show('Não foi possível carregar as músicas do site.', 'error');
+      } else {
+        console.warn('[RPG.music] Usando a última lista salva no localStorage. Se você renomeou uma música, ela será atualizada assim que o GitHub API responder.');
       }
       return cached;
     }
